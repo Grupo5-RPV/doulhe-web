@@ -1,0 +1,47 @@
+.headerContainer {
+  border-bottom: 1px solid var(--black);
+  padding: 0.8rem;
+}
+
+.headerWrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-size: 2rem;
+    font-style: italic;
+  }
+
+  h1 {
+    font-weight: 500;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  background: none;
+  border: 0;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  & + .button {
+    margin-left: 1rem;
+  }
+}
