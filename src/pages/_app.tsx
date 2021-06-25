@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-
+import 'react-image-gallery/styles/scss/image-gallery.scss';
 import '../styles/global.scss';
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
