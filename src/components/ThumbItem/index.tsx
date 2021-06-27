@@ -1,26 +1,26 @@
-import ImageGallery from 'react-image-gallery';
+import {MagnifierPreview,MagnifierContainer, MagnifierZoom} from "react-image-magnifiers";
+import styles from './item.module.scss';
 
 export function ThumbItem() {
 
 
 
-    const images = [
-      {
-        original: 'http://lorempixel.com/1000/600/nature/1/',
-        thumbnail: 'http://lorempixel.com/250/150/nature/1/',
-      },
-      {
-        original: 'http://lorempixel.com/1000/600/nature/2/',
-        thumbnail: 'http://lorempixel.com/250/150/nature/2/'
-      },
-      {
-        original: 'http://lorempixel.com/1000/600/nature/3/',
-        thumbnail: 'http://lorempixel.com/250/150/nature/3/'
-      }
-    ]
-
     return (
-      <ImageGallery items={images} />
+  <MagnifierContainer>
+  <div className={styles.thumbSection}>
+  <div className = "example-class">
+  <MagnifierPreview style = {{width: "40vw", height:"30vw"}} imageSrc = "assets/sofa" />
+  </div>
+  <div>
+  <MagnifierZoom className={styles.thumbZoom}style = {{height: "20vh", width: "vw"}} imageSrc = "assets/sofa" />
+  </div>
+  </div>
+</MagnifierContainer>
+
+
+
+
+
     );
   }
 

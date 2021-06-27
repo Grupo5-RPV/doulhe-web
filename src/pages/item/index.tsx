@@ -16,13 +16,14 @@ return(
     <ThumbItem/>
     </div>
     </div>
-    <div>
+    <div className={styles.infoSection}>
     <span>lance min R$ 1.290,00</span>
-    <h2>R$ 1398,00</h2>
+    <h4>R$ 1398,00</h4>
+    <button>Dar lance</button>
     </div>
 </section>
 
-<section>
+<section className ={styles.viewDescriptionSection}>
 <h3>Descrição</h3>
 
 <p>
