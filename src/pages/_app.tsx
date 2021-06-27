@@ -1,5 +1,4 @@
 import type { AppProps } from 'next/app';
-
 import '../styles/global.scss';
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';

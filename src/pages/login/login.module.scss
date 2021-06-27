@@ -66,12 +66,25 @@
         
        }
 
+       button:hover{
+       transition: 1s;
+        background-color: #d86c6c;
+       }
+
        a{
            margin-left: 11vw;
            margin-top: 10px;
            font-size: 13px;
            color: #D25959
        }
+
+       a:hover{
+        transition: 1s;
+        color: #cc4646;
+        text-decoration: underline;
+       }
+
+
        span{
         margin-left: 10vw;
         margin-top: 3rem;
