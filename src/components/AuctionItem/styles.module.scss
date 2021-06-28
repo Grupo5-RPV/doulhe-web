@@ -1,0 +1,46 @@
+.auctionItem {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;    
+  flex-direction: column;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+
+  img {
+    height: 80%;
+    width: 100%;
+    pointer-events: none
+  }
+}
+
+.clock {
+  position: absolute;
+  left: -8px;
+  top: 8px;
+
+  display: flex;
+  padding: 0.2rem;
+  background: var(--red);
+  
+  color: var(--white);
+  font-weight: 200;
+
+  >strong {
+    margin-left: 0.2rem;
+  }
+}
+
+.detailsItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ 
+  padding: 0.3rem;
+  max-width: 18rem;
+  gap: 3px;
+  
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
