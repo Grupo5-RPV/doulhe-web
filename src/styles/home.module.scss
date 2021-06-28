@@ -6,6 +6,7 @@
   >img {
     height: 18.75rem;
     width: 100%;
+    pointer-events: none
   }
 }
   
@@ -59,7 +60,7 @@
   main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 4rem;
   }
 }
 
@@ -78,10 +79,6 @@
   }
 }
 
-.test {
-  height: 400px;
-  background: var(--gray);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.itemContainer {
+  height: 27rem;
 } 

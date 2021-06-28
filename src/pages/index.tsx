@@ -1,5 +1,6 @@
 import { FiAlertCircle, FiChevronDown } from 'react-icons/fi';
 
+import { AuctionItem } from '../components/AuctionItem';
 import { Carousel } from '../components/Carousel';
 import { Header } from '../components/Header';
 import styles from '../styles/home.module.scss';
@@ -44,27 +45,54 @@ export default function Home() {
             </div>
           </header>
           <main>
-            <div className={styles.test}>
-              <span>Teste</span>
+            <div className={styles.itemContainer}>
+              <AuctionItem
+                name="Sofá usado"
+                category="Móveis"
+                finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
+                highestBid={3200}
+              />
             </div>
-            <div className={styles.test}>
-              <span>Teste</span>
+            {/* <div className={styles.itemContainer}>
+              <AuctionItem
+                name="Sofá usado"
+                category="Móveis"
+                finalDate={new Date(2021, 6, 25, 21, 0, 0, 0)}
+                highestBid={3200}
+              />
             </div>
-            <div className={styles.test}>
-              <span>Teste</span>
+            <div className={styles.itemContainer}>
+              <AuctionItem
+                name="Sofá usado"
+                category="Móveis"
+                finalDate={new Date(2021, 6, 25, 21, 0, 0, 0)}
+                highestBid={3200}
+              />
             </div>
-            <div className={styles.test}>
-              <span>Teste</span>
+            <div className={styles.itemContainer}>
+              <AuctionItem
+                name="Sofá usado"
+                category="Móveis"
+                finalDate={new Date(2021, 6, 25, 21, 0, 0, 0)}
+                highestBid={3200}
+              />
             </div>
-            <div className={styles.test}>
-              <span>Teste</span>
+            <div className={styles.itemContainer}>
+              <AuctionItem
+                name="Sofá usado"
+                category="Móveis"
+                finalDate={new Date(2021, 6, 25, 21, 0, 0, 0)}
+                highestBid={3200}
+              />
             </div>
-            <div className={styles.test}>
-              <span>Teste</span>
-            </div>
-            <div className={styles.test}>
-              <span>Teste</span>
-            </div>
+            <div className={styles.itemContainer}>
+              <AuctionItem
+                name="Sofá usado"
+                category="Móveis"
+                finalDate={new Date(2021, 6, 25, 21, 0, 0, 0)}
+                highestBid={3200}
+              />
+            </div> */}
           </main>
         </section>
       </main>
