@@ -25,16 +25,44 @@ export function Carousel() {
       }}
     >
       <SwiperSlide>
-        <ItemCarousel />
+        <ItemCarousel
+          name="Sofá"
+          descrition="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
+            dignissim sem, vitae pharetra metus. Donec eu accumsan nisl, et
+            bibendum justo. Pellentesque bibendum tellus id dolor iaculis"
+          finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
+          image="https://i.pinimg.com/originals/4f/c3/a3/4fc3a33627db8cdf267b869a3caed4a1.png"
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <ItemCarousel />
+        <ItemCarousel
+          name="Sofá"
+          descrition="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
+            dignissim sem, vitae pharetra metus. Donec eu accumsan nisl, et
+            bibendum justo. Pellentesque bibendum tellus id dolor iaculis"
+          finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
+          image="https://i.pinimg.com/originals/4f/c3/a3/4fc3a33627db8cdf267b869a3caed4a1.png"
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <ItemCarousel />
+        <ItemCarousel
+          name="Sofá"
+          descrition="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
+            dignissim sem, vitae pharetra metus. Donec eu accumsan nisl, et
+            bibendum justo. Pellentesque bibendum tellus id dolor iaculis"
+          finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
+          image="https://i.pinimg.com/originals/4f/c3/a3/4fc3a33627db8cdf267b869a3caed4a1.png"
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <ItemCarousel />
+        <ItemCarousel
+          name="Sofá"
+          descrition="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
+            dignissim sem, vitae pharetra metus. Donec eu accumsan nisl, et
+            bibendum justo. Pellentesque bibendum tellus id dolor iaculis"
+          finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
+          image="https://i.pinimg.com/originals/4f/c3/a3/4fc3a33627db8cdf267b869a3caed4a1.png"
+        />
       </SwiperSlide>
     </Swiper>
   );
