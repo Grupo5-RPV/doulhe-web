@@ -1,6 +1,7 @@
 import {} from 'react-icons/fi';
 import { Header } from '../../components/Header';
-import { ThumbItem } from '../../components/ThumbItem';
+import { ItemClock } from '../../components/ItemClock';
+import { ThumbsGallery } from '../../components/ThumbsGallery';
 import styles from './item.module.scss';
 
 export default function Item() {
@@ -11,17 +12,26 @@ return(
 <main>
 <section className={styles.viewItemSection}>
     <div>
-    <h2>Conjunto de Móveis</h2>
-    <div className={styles.thumb}>
-    <ThumbItem/>
-    </div>
-    </div>
-    <div className={styles.infoSection}>
-    <span>lance min R$ 1.290,00</span>
-    <h4>R$ 1398,00</h4>
-    <button>Dar lance</button>
-    </div>
-</section>
+      <Header />
+      <main className={styles.itemContainer}>
+        <section>
+          <h2>Conjunto de Móveis</h2>
+          <div className={styles.viewItemSection}>
+            <div className={styles.thumb}>
+              <ThumbsGallery />
+            </div>
+            <div className={styles.infoSection}>
+              <div className={styles.itemClock}>
+                <ItemClock timeToFinished={12312} />
+              </div>
+              <div className={styles.amount}>
+                <span>lance min R$ 1.290,00</span>
+                <h4>R$ 1398,00</h4>
+              </div>
+              <button>Dar lance</button>
+            </div>
+          </div>
+        </section>
 
 <section className ={styles.viewDescriptionSection}>
 <h3>Descrição</h3>
