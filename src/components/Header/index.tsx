@@ -11,9 +11,13 @@ export function Header() {
   return (
     <div className={styles.headerContainer}>
       <div className={styles.headerWrapper}>
-        <div className={styles.logo}>
-          <span>Doulhe</span>
-          <h1>Leilões</h1>
+        <div className={styles.logoWrapper}>
+          <Link href="/">
+            <div className={styles.logo}>
+              <span>Doulhe</span>
+              <h1>Leilões</h1>
+            </div>
+          </Link>
         </div>
         <div className={styles.buttons}>
           <Link href="/login">

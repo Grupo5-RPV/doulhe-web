@@ -9,7 +9,7 @@ export default function Item() {
       <Header />
       <main className={styles.itemContainer}>
         <section>
-          <h2>Conjunto de Móveis</h2>
+          <h2>Sofá usado</h2>
           <div className={styles.viewItemSection}>
             <div className={styles.thumb}>
               <ThumbsGallery />

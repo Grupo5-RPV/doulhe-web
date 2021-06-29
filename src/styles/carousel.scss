@@ -1,0 +1,22 @@
+.swiper-button-next {
+  right: 45px;
+}
+.swiper-button-prev {
+  left: 45px;
+}
+.swiper-button-prev:after, .swiper-button-next:after{
+  color: var(--black);
+}
+
+.swiper-pagination-bullet{
+  position: relative;
+  width:16px;
+  height:16px;
+  top: 10px;
+  background:#999999;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active{
+  background:var(--black) ;
+}
