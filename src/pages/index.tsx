@@ -1,5 +1,7 @@
 import { FiAlertCircle, FiChevronDown } from 'react-icons/fi';
 
+import Link from 'next/link';
+
 import { AuctionItem } from '../components/AuctionItem';
 import { Carousel } from '../components/Carousel';
 import { Header } from '../components/Header';
@@ -45,54 +47,76 @@ export default function Home() {
             </div>
           </header>
           <main>
-            <div className={styles.itemContainer}>
-              <AuctionItem
-                name="Sofá usado"
-                category="Móveis"
-                finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
-                highestBid={3200}
-              />
-            </div>
-            {/* <div className={styles.itemContainer}>
-              <AuctionItem
-                name="Sofá usado"
-                category="Móveis"
-                finalDate={new Date(2021, 6, 25, 21, 0, 0, 0)}
-                highestBid={3200}
-              />
-            </div>
-            <div className={styles.itemContainer}>
-              <AuctionItem
-                name="Sofá usado"
-                category="Móveis"
-                finalDate={new Date(2021, 6, 25, 21, 0, 0, 0)}
-                highestBid={3200}
-              />
-            </div>
-            <div className={styles.itemContainer}>
-              <AuctionItem
-                name="Sofá usado"
-                category="Móveis"
-                finalDate={new Date(2021, 6, 25, 21, 0, 0, 0)}
-                highestBid={3200}
-              />
-            </div>
-            <div className={styles.itemContainer}>
-              <AuctionItem
-                name="Sofá usado"
-                category="Móveis"
-                finalDate={new Date(2021, 6, 25, 21, 0, 0, 0)}
-                highestBid={3200}
-              />
-            </div>
-            <div className={styles.itemContainer}>
-              <AuctionItem
-                name="Sofá usado"
-                category="Móveis"
-                finalDate={new Date(2021, 6, 25, 21, 0, 0, 0)}
-                highestBid={3200}
-              />
-            </div> */}
+            <Link href="/item">
+              <div className={styles.itemContainer}>
+                <AuctionItem
+                  name="Sofá usado"
+                  category="Móveis"
+                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
+                  highestBid={1398}
+                />
+              </div>
+            </Link>
+            <Link href="/item">
+              <div className={styles.itemContainer}>
+                <AuctionItem
+                  name="Sofá usado"
+                  category="Móveis"
+                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
+                  highestBid={1398}
+                />
+              </div>
+            </Link>
+            <Link href="/item">
+              <div className={styles.itemContainer}>
+                <AuctionItem
+                  name="Sofá usado"
+                  category="Móveis"
+                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
+                  highestBid={1398}
+                />
+              </div>
+            </Link>
+            <Link href="/item">
+              <div className={styles.itemContainer}>
+                <AuctionItem
+                  name="Sofá usado"
+                  category="Móveis"
+                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
+                  highestBid={1398}
+                />
+              </div>
+            </Link>
+            <Link href="/item">
+              <div className={styles.itemContainer}>
+                <AuctionItem
+                  name="Sofá usado"
+                  category="Móveis"
+                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
+                  highestBid={1398}
+                />
+              </div>
+            </Link>
+            <Link href="/item">
+              <div className={styles.itemContainer}>
+                <AuctionItem
+                  name="Sofá usado"
+                  category="Móveis"
+                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
+                  highestBid={1398}
+                />
+              </div>
+            </Link>
+            <Link href="/item">
+              <div className={styles.itemContainer}>
+                <AuctionItem
+                  name="Sofá usado"
+                  category="Móveis"
+                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
+                  highestBid={1398}
+                />
+              </div>
+            </Link>
           </main>
         </section>
       </main>
