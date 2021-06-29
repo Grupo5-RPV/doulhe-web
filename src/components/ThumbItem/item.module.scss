@@ -1,3 +1,22 @@
+.container{
+display: flex;
+flex-direction: row;
+
+.pictures{
+  width:64px;
+  margin-right: 40px;
+  margin-top: 30px;
+    img{
+      width:100%;
+      margin-bottom: 10px;
+    }
+
+    img:hover{
+              
+      box-shadow: 0 0 10px  #d86c6c,0 0 10px  #d86c6c,0 0 10px  #d86c6c, ;
+    }
+}
+
 .thumbSection {
 display: flex;
 flex-direction: row;
@@ -9,4 +28,6 @@ margin-top: 4vh;
     margin-left: 25px;
     margin-right: -200px;
 }
+}
+
 }
