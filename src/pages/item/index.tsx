@@ -1,6 +1,5 @@
 import {} from 'react-icons/fi';
 import { Header } from '../../components/Header';
-import { ThumbsGallery } from '../../components/ThumbsGallery';
 import { ItemClock } from '../../components/ItemClock';
 import { ThumbsGallery } from '../../components/ThumbsGallery';
 import styles from './item.module.scss';
