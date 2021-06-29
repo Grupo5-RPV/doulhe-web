@@ -1,4 +1,3 @@
-import {} from 'react-icons/fi';
 import { Header } from '../../components/Header';
 import { ItemClock } from '../../components/ItemClock';
 import { ThumbsGallery } from '../../components/ThumbsGallery';
@@ -17,7 +16,7 @@ export default function Item() {
             </div>
             <div className={styles.infoSection}>
               <div className={styles.itemClock}>
-                <ItemClock timeToFinished={12312} />
+                <ItemClock finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)} />
               </div>
               <div className={styles.amount}>
                 <span>lance min R$ 1.290,00</span>

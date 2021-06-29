@@ -1,7 +1,3 @@
-import { useEffect, useState } from 'react';
-
-import { differenceInSeconds } from 'date-fns';
-
 import { ItemClock } from '../ItemClock';
 import style from './itemCarousel.module.scss';
 
@@ -18,18 +14,6 @@ export function ItemCarousel({
   descrition,
   image,
 }: itemCarouselProps) {
-  const [timeTofinished, setTimeTofinished] = useState(
-    differenceInSeconds(finalDate, new Date())
-  );
-
-  useEffect(() => {
-    if (timeTofinished >= 0) {
-      setTimeout(() => {
-        setTimeTofinished(timeTofinished - 1);
-      }, 1000);
-    }
-  }, [timeTofinished]);
-
   return (
     <div className={style.itemContainer}>
       <div className={style.descriptionItem}>
@@ -39,7 +23,7 @@ export function ItemCarousel({
         </div>
         <img src={image} alt={name} />
       </div>
-      <ItemClock timeToFinished={timeTofinished} />
+      <ItemClock finalDate={finalDate} />
     </div>
   );
 }

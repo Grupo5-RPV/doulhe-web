@@ -1,13 +1,28 @@
+import { useEffect, useState } from 'react';
 import { FiClock } from 'react-icons/fi';
+
+import { differenceInSeconds } from 'date-fns';
 
 import { convertSeconds } from '../../utils/converts';
 import style from './styles.module.scss';
 
 interface ItemClockProps {
-  timeToFinished: number;
+  finalDate: Date;
 }
 
-export function ItemClock({ timeToFinished }: ItemClockProps) {
+export function ItemClock({ finalDate }: ItemClockProps) {
+  const [timeToFinished, setTimeToFinished] = useState(
+    differenceInSeconds(finalDate, new Date())
+  );
+
+  useEffect(() => {
+    if (timeToFinished >= 0) {
+      setTimeout(() => {
+        setTimeToFinished(timeToFinished - 1);
+      }, 1000);
+    }
+  }, [timeToFinished]);
+
   return (
     <div className={style.itemClock}>
       <span>Doações abertas</span>
