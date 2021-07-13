@@ -49,7 +49,7 @@ export default function Login() {
           <a href="/">Esqueci minha senha</a>
           <button type="submit">Entre</button>
           <span>Ainda não é cadastrado?</span>
-          <a>Cadastre-se agora!</a>
+          <a href = "/participant">Cadastre-se agora!</a>
         </form>
       </main>
     </div>
