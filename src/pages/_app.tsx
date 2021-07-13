@@ -10,9 +10,9 @@ import 'swiper/components/effect-coverflow/effect-coverflow.scss';
 import 'react-image-gallery/styles/scss/image-gallery.scss';
 import { makeServer } from '../services/mirage';
 
-if (process.env.NODE_ENV === 'development') {
-  makeServer();
-}
+// if (process.env.NODE_ENV === 'development') {
+//   makeServer();
+// }
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

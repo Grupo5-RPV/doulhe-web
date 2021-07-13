@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FiAlertCircle, FiChevronDown } from 'react-icons/fi';
 
+import axios from 'axios';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
@@ -10,23 +11,33 @@ import { Header } from '../components/Header';
 import { api } from '../services/server';
 import styles from '../styles/home.module.scss';
 
-interface Auction {
+interface AuctionItem {
   id: string;
   name: string;
   category: string;
   image: string;
   finalDate: string;
   highestBid: number;
-  createdAt: string;
+}
+
+interface CharityAuctionsItem {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  finalDate: string;
 }
 
 export default function Home() {
-  const [auctions, setAuctions] = useState<Auction[]>([]);
+  const [auctions, setAuctions] = useState<AuctionItem[]>([]);
+  const [charityAuctions, setCharityAuctions] = useState<CharityAuctionsItem[]>(
+    []
+  );
 
   useEffect(() => {
-    api
-      .get('/api/auctions')
-      .then((response) => setAuctions(response.data.auctions));
+    axios
+      .get('http://localhost:3333/auctions')
+      .then((response) => console.log(response));
   }, []);
 
   return (
@@ -43,7 +54,7 @@ export default function Home() {
             </button>
           </div>
           <div className={styles.carrouselContainer}>
-            <Carousel />
+            <Carousel items={charityAuctions} />
           </div>
         </section>
         <section className={styles.openAuctions}>
@@ -69,7 +80,7 @@ export default function Home() {
           </header>
           <main>
             {auctions.map((auction) => (
-              <Link href="/item" key={auction.id}>
+              <Link href={`item/${auction.id}`} key={auction.id}>
                 <div className={styles.itemContainer}>
                   <AuctionItem
                     name={auction.name}
@@ -88,8 +99,11 @@ export default function Home() {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  return {
-    props: {},
-  };
-};
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const { data } = await api.get('/auctions');
+//   console.log(data);
+
+//   return {
+//     props: {},
+//   };
+// };
