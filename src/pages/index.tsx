@@ -1,39 +1,21 @@
-import { useState, useEffect } from 'react';
-import { FiAlertCircle, FiChevronDown } from 'react-icons/fi';
+import { useEffect } from 'react';
+import { FiChevronDown } from 'react-icons/fi';
 
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
 import { AuctionItem } from '../components/AuctionItem';
-import { Carousel } from '../components/Carousel';
 import { Header } from '../components/Header';
 import response from '../services/auctions.json';
-import { api } from '../services/server';
 import styles from '../styles/home.module.scss';
 
 interface AuctionItem {
   id: string;
   name: string;
   category: string;
-  image: string;
+  image: string[];
   finalDate: string;
   highestBid: number;
-}
-
-interface ResponseItem {
-  id: string;
-  title: string;
-  description: string;
-  minimumBid: string;
-  imagePath: string;
-  finishedOff: string;
-}
-
-interface Response {
-  id: string;
-  end: string;
-  closed: number;
-  items: ResponseItem[];
 }
 
 interface HomeProps {
@@ -90,7 +72,7 @@ export default function Home({ auctionItems }: HomeProps) {
                   <AuctionItem
                     name={auction.name}
                     category={auction.category}
-                    imageUrl={auction.image}
+                    imageUrl={auction.image[0]}
                     finalDate={auction.finalDate}
                     highestBid={auction.highestBid}
                   />
@@ -124,7 +106,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   // const auctionItems = items[0];
 
-  console.log(response.data);
+  const auctionItems = response.data;
 
   return {
     props: {

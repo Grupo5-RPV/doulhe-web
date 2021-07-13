@@ -1,9 +1,9 @@
-import faker from 'faker';
 import { GetServerSideProps } from 'next';
 
 import { Header } from '../../components/Header';
 import { ItemClock } from '../../components/ItemClock';
 import { ThumbsGallery } from '../../components/ThumbsGallery';
+import response from '../../services/auctions.json';
 import { convertInReais } from '../../utils/converts';
 import styles from './item.module.scss';
 
@@ -13,9 +13,9 @@ interface ItemProps {
     description: string;
     category: string;
     image: string[];
-    minimumBid: string;
+    initialBid: number;
     finalDate: string;
-    highestBid: string;
+    highestBid: number;
     createdAt: string;
   };
 }
@@ -36,8 +36,8 @@ export default function Item({ itemData }: ItemProps) {
                 <ItemClock finalDate={itemData.finalDate} />
               </div>
               <div className={styles.amount}>
-                <span>lance min {itemData.minimumBid}</span>
-                <h4>{itemData.highestBid}</h4>
+                <span>lance min {convertInReais(itemData.initialBid)}</span>
+                <h4>{convertInReais(itemData.highestBid)}</h4>
               </div>
               <button>Dar lance</button>
             </div>
@@ -58,29 +58,15 @@ export const getServerSideProps: GetServerSideProps = async ({
   req,
   params,
 }) => {
-  // const { id } = params;
-  // const response = await api.get(`auctions/${id}`);
-  const response = {
-    name: 'Sofá usado',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. A quisquam unde, cumque libero temporibus deleniti voluptatibus minima dolorum quod quibusdam explicabo ipsa ullam quis fugiat vitae debitis eos adipisci ipsum.',
-    category: 'Móvel',
-    image: [
-      'https://i.pinimg.com/originals/4f/c3/a3/4fc3a33627db8cdf267b869a3caed4a1.png',
-      'https://i.pinimg.com/originals/4f/c3/a3/4fc3a33627db8cdf267b869a3caed4a1.png',
-      'https://i.pinimg.com/originals/4f/c3/a3/4fc3a33627db8cdf267b869a3caed4a1.png',
-    ],
-    minimumBid: convertInReais(100),
-    finalDate: String(faker.date.soon(1)),
-    highestBid: convertInReais(140),
-    createdAt: String(faker.date.recent(10)),
-  };
-
   const { id } = params;
+
+  const itemFilter = response.data.filter((item) => item.id === id);
+
+  console.log(itemFilter);
 
   return {
     props: {
-      itemData: response,
+      itemData: itemFilter[0],
     },
   };
 };

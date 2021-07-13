@@ -3,11 +3,26 @@
     {
       "id" : "123fsagsdgsd23r523",
       "name" : "Corvete",
+      "description": "asufuioasgfbiasubfoasibhfioasgfbboasbnfioasbfo0ibaspfhnaopbasoifboasnfasufuioasgfbiasubfoasibhfioasgfbboasbnfioasbfo0i",
       "category" : "Automóveis",
-      "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Chevrolet-Corvette-C6-convertible.jpg/800px-Chevrolet-Corvette-C6-convertible.jpg",
+      "image" : ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Chevrolet-Corvette-C6-convertible.jpg/800px-Chevrolet-Corvette-C6-convertible.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Chevrolet-Corvette-C6-convertible.jpg/800px-Chevrolet-Corvette-C6-convertible.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Chevrolet-Corvette-C6-convertible.jpg/800px-Chevrolet-Corvette-C6-convertible.jpg"],
       "finalDate" : "2021-07-14T22:10:17.000Z",
-      "highestBid" : "2000",
-      "initialBid" : "1000"
+      "highestBid" : 2000,
+      "initialBid" : 1000
+    },
+    {
+      "id" : "123fs21423r523",
+      "name" : "Sofá usado",
+      "description": "O sofá estilo living, tem como principais características no seu design a simplicidade das linhas e formas, tornando perfeito para um ambiente contemporâneo. Ainda, os sofás living são muito confortáveis, elegantes e resistentes.",
+      "category" : "Móveis",
+      "image" : [
+        "https://i.pinimg.com/originals/4f/c3/a3/4fc3a33627db8cdf267b869a3caed4a1.png",
+        "https://i.pinimg.com/originals/4f/c3/a3/4fc3a33627db8cdf267b869a3caed4a1.png",
+        "https://i.pinimg.com/originals/4f/c3/a3/4fc3a33627db8cdf267b869a3caed4a1.png"
+      ],
+      "finalDate" : "2021-07-15T22:10:17.000Z",
+      "highestBid" : 300,
+      "initialBid" : 50
     }
   ]
 }
