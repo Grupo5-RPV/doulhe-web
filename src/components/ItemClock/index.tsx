@@ -25,7 +25,6 @@ export function ItemClock({ finalDate }: ItemClockProps) {
 
   return (
     <div className={style.itemClock}>
-      <span>Doações abertas</span>
       <div>
         <FiClock />
         <strong>{convertSeconds(timeToFinished)}</strong>

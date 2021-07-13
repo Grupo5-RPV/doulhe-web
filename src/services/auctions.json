@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "id" : "123fsagsdgsd23r523",
+      "name" : "Corvete",
+      "category" : "Automóveis",
+      "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Chevrolet-Corvette-C6-convertible.jpg/800px-Chevrolet-Corvette-C6-convertible.jpg",
+      "finalDate" : "2021-07-14T22:10:17.000Z",
+      "highestBid" : "2000",
+      "initialBid" : "1000"
+    }
+  ]
+}

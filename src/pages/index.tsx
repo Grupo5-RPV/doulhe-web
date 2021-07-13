@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FiAlertCircle, FiChevronDown } from 'react-icons/fi';
 
-import axios from 'axios';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
 import { AuctionItem } from '../components/AuctionItem';
 import { Carousel } from '../components/Carousel';
 import { Header } from '../components/Header';
+import response from '../services/auctions.json';
 import { api } from '../services/server';
 import styles from '../styles/home.module.scss';
 
@@ -20,24 +20,29 @@ interface AuctionItem {
   highestBid: number;
 }
 
-interface CharityAuctionsItem {
+interface ResponseItem {
   id: string;
-  name: string;
+  title: string;
   description: string;
-  image: string;
-  finalDate: string;
+  minimumBid: string;
+  imagePath: string;
+  finishedOff: string;
 }
 
-export default function Home() {
-  const [auctions, setAuctions] = useState<AuctionItem[]>([]);
-  const [charityAuctions, setCharityAuctions] = useState<CharityAuctionsItem[]>(
-    []
-  );
+interface Response {
+  id: string;
+  end: string;
+  closed: number;
+  items: ResponseItem[];
+}
 
+interface HomeProps {
+  auctionItems: AuctionItem[];
+}
+
+export default function Home({ auctionItems }: HomeProps) {
   useEffect(() => {
-    axios
-      .get('http://localhost:3333/auctions')
-      .then((response) => console.log(response));
+    console.log(auctionItems);
   }, []);
 
   return (
@@ -45,7 +50,7 @@ export default function Home() {
       <Header />
       <main className={styles.mainHome}>
         <img src="/assets/dashboard.svg" />
-        <section>
+        {/* <section>
           <div className={styles.titleSection}>
             <span>Leilões</span>
             <h2>Beneficentes</h2>
@@ -56,7 +61,7 @@ export default function Home() {
           <div className={styles.carrouselContainer}>
             <Carousel items={charityAuctions} />
           </div>
-        </section>
+        </section> */}
         <section className={styles.openAuctions}>
           <header>
             <div className={styles.titleSection}>
@@ -79,7 +84,7 @@ export default function Home() {
             </div>
           </header>
           <main>
-            {auctions.map((auction) => (
+            {auctionItems.map((auction) => (
               <Link href={`item/${auction.id}`} key={auction.id}>
                 <div className={styles.itemContainer}>
                   <AuctionItem
@@ -99,11 +104,31 @@ export default function Home() {
   );
 }
 
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const { data } = await api.get('/auctions');
-//   console.log(data);
+export const getServerSideProps: GetServerSideProps = async () => {
+  // const response = await api.get('/auctions');
 
-//   return {
-//     props: {},
-//   };
-// };
+  // const data: Response[] = response.data;
+
+  // const items = data.map((auction) => {
+  //   return auction.items.map((item) => {
+  //     return {
+  //       id: item.id,
+  //       name: item.title,
+  //       category: 'Outros',
+  //       image: item.imagePath,
+  //       finalDate: auction.end,
+  //       highestBid: item.minimumBid,
+  //     };
+  //   });
+  // });
+
+  // const auctionItems = items[0];
+
+  console.log(response.data);
+
+  return {
+    props: {
+      auctionItems,
+    },
+  };
+};

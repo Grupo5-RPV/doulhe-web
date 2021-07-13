@@ -1,9 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-import axios from 'axios';
-
 import { useAuth } from '../../hooks/auth';
-import { api } from '../../services/server';
 import styles from './login.module.scss';
 
 interface SignData {
@@ -16,12 +13,10 @@ export default function Login() {
   const { signIn } = useAuth();
 
   async function handleSignIn(data: SignData) {
-    const result = await api.post('/participants/login', {
+    await signIn({
       email: data.email,
       password: data.password,
     });
-
-    console.log(result);
   }
 
   return (

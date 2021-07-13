@@ -10,9 +10,9 @@ import Router from 'next/router';
 import { parseCookies, setCookie } from 'nookies';
 
 import { recoverUserInformation, signInRequest } from '../services/auth';
+import { api } from '../services/server';
 
 interface User {
-  name: string;
   email: string;
 }
 
@@ -49,16 +49,24 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, []);
 
   async function signIn({ email, password }: SignInData) {
-    //dev
-    const { token, user } = await signInRequest({ email, password });
+    try {
+      const { data } = await api.post('/participants/login', {
+        email: email,
+        password: password,
+      });
 
-    setCookie(undefined, '@doulhe:token', token, {
-      maxAge: 60 * 60 * 24, //24hours
-    });
+      setCookie(undefined, '@doulhe:token', data, {
+        maxAge: 60 * 60 * 24, //24hours
+      });
 
-    setUser(user);
+      setUser({
+        email,
+      });
 
-    Router.push('/');
+      Router.push('/');
+    } catch {
+      alert('Confire suas credencias');
+    }
   }
 
   return (

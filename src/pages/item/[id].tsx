@@ -76,6 +76,8 @@ export const getServerSideProps: GetServerSideProps = async ({
     createdAt: String(faker.date.recent(10)),
   };
 
+  const { id } = params;
+
   return {
     props: {
       itemData: response,
