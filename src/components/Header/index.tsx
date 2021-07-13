@@ -23,7 +23,7 @@ export function Header() {
           <Link href="/login">
             <button className={styles.button}>
               <FiUser />
-              <span>{user?.name}</span>
+              <span>{user?.email}</span>
             </button>
           </Link>
         </div>

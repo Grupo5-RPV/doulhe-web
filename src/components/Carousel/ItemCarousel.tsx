@@ -4,7 +4,7 @@ import style from './itemCarousel.module.scss';
 interface itemCarouselProps {
   name: string;
   descrition: string;
-  finalDate: Date;
+  finalDate: string;
   image: string;
 }
 

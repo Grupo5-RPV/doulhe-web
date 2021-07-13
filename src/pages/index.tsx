@@ -1,19 +1,38 @@
-import { FiAlertCircle, FiChevronDown } from 'react-icons/fi';
+import { useEffect } from 'react';
+import { FiChevronDown } from 'react-icons/fi';
 
+import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
 import { AuctionItem } from '../components/AuctionItem';
-import { Carousel } from '../components/Carousel';
 import { Header } from '../components/Header';
+import response from '../services/auctions.json';
 import styles from '../styles/home.module.scss';
 
-export default function Home() {
+interface AuctionItem {
+  id: string;
+  name: string;
+  category: string;
+  image: string[];
+  finalDate: string;
+  highestBid: number;
+}
+
+interface HomeProps {
+  auctionItems: AuctionItem[];
+}
+
+export default function Home({ auctionItems }: HomeProps) {
+  useEffect(() => {
+    console.log(auctionItems);
+  }, []);
+
   return (
     <div>
       <Header />
       <main className={styles.mainHome}>
         <img src="/assets/dashboard.svg" />
-        <section>
+        {/* <section>
           <div className={styles.titleSection}>
             <span>Leilões</span>
             <h2>Beneficentes</h2>
@@ -22,9 +41,9 @@ export default function Home() {
             </button>
           </div>
           <div className={styles.carrouselContainer}>
-            <Carousel />
+            <Carousel items={charityAuctions} />
           </div>
-        </section>
+        </section> */}
         <section className={styles.openAuctions}>
           <header>
             <div className={styles.titleSection}>
@@ -47,79 +66,51 @@ export default function Home() {
             </div>
           </header>
           <main>
-            <Link href="/item">
-              <div className={styles.itemContainer}>
-                <AuctionItem
-                  name="Sofá usado"
-                  category="Móveis"
-                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
-                  highestBid={1398}
-                />
-              </div>
-            </Link>
-            <Link href="/item">
-              <div className={styles.itemContainer}>
-                <AuctionItem
-                  name="Sofá usado"
-                  category="Móveis"
-                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
-                  highestBid={1398}
-                />
-              </div>
-            </Link>
-            <Link href="/item">
-              <div className={styles.itemContainer}>
-                <AuctionItem
-                  name="Sofá usado"
-                  category="Móveis"
-                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
-                  highestBid={1398}
-                />
-              </div>
-            </Link>
-            <Link href="/item">
-              <div className={styles.itemContainer}>
-                <AuctionItem
-                  name="Sofá usado"
-                  category="Móveis"
-                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
-                  highestBid={1398}
-                />
-              </div>
-            </Link>
-            <Link href="/item">
-              <div className={styles.itemContainer}>
-                <AuctionItem
-                  name="Sofá usado"
-                  category="Móveis"
-                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
-                  highestBid={1398}
-                />
-              </div>
-            </Link>
-            <Link href="/item">
-              <div className={styles.itemContainer}>
-                <AuctionItem
-                  name="Sofá usado"
-                  category="Móveis"
-                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
-                  highestBid={1398}
-                />
-              </div>
-            </Link>
-            <Link href="/item">
-              <div className={styles.itemContainer}>
-                <AuctionItem
-                  name="Sofá usado"
-                  category="Móveis"
-                  finalDate={new Date(2021, 5, 30, 17, 0, 0, 0)}
-                  highestBid={1398}
-                />
-              </div>
-            </Link>
+            {auctionItems.map((auction) => (
+              <Link href={`item/${auction.id}`} key={auction.id}>
+                <div className={styles.itemContainer}>
+                  <AuctionItem
+                    name={auction.name}
+                    category={auction.category}
+                    imageUrl={auction.image[0]}
+                    finalDate={auction.finalDate}
+                    highestBid={auction.highestBid}
+                  />
+                </div>
+              </Link>
+            ))}
           </main>
         </section>
       </main>
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  // const response = await api.get('/auctions');
+
+  // const data: Response[] = response.data;
+
+  // const items = data.map((auction) => {
+  //   return auction.items.map((item) => {
+  //     return {
+  //       id: item.id,
+  //       name: item.title,
+  //       category: 'Outros',
+  //       image: item.imagePath,
+  //       finalDate: auction.end,
+  //       highestBid: item.minimumBid,
+  //     };
+  //   });
+  // });
+
+  // const auctionItems = items[0];
+
+  const auctionItems = response.data;
+
+  return {
+    props: {
+      auctionItems,
+    },
+  };
+};

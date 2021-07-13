@@ -7,12 +7,12 @@ import { convertSeconds } from '../../utils/converts';
 import style from './styles.module.scss';
 
 interface ItemClockProps {
-  finalDate: Date;
+  finalDate: string;
 }
 
 export function ItemClock({ finalDate }: ItemClockProps) {
   const [timeToFinished, setTimeToFinished] = useState(
-    differenceInSeconds(finalDate, new Date())
+    differenceInSeconds(new Date(finalDate), new Date())
   );
 
   useEffect(() => {
@@ -25,7 +25,6 @@ export function ItemClock({ finalDate }: ItemClockProps) {
 
   return (
     <div className={style.itemClock}>
-      <span>Doações abertas</span>
       <div>
         <FiClock />
         <strong>{convertSeconds(timeToFinished)}</strong>

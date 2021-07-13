@@ -3,12 +3,17 @@ import { useForm } from 'react-hook-form';
 import { useAuth } from '../../hooks/auth';
 import styles from './login.module.scss';
 
+interface SignData {
+  email: string;
+  password: string;
+}
+
 export default function Login() {
   const { register, handleSubmit } = useForm();
   const { signIn } = useAuth();
 
-  async function handleSignIn(data: any) {
-    signIn({
+  async function handleSignIn(data: SignData) {
+    await signIn({
       email: data.email,
       password: data.password,
     });
