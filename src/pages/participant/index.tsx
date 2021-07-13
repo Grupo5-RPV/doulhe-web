@@ -42,14 +42,15 @@ try {
         <div className={styles.sectionForm}>
         <h2>Preencha seus dados</h2>
         <form>
-        <input type="text" placeholder="Nome"/>
-        <input type="email" placeholder="E-mail"/>
-        <input type="password" placeholder="Senha" />
-        <input type="password" placeholder="Confirmar senha"/>
-        <input type="text" placeholder="User"/>
-        <input type="text" placeholder="Endereço"/>
-        <input type="phone" placeholder="Telefone"/>
-        <button type="submit">Salvar</button>
+        <input type="text" placeholder="Nome"   onChange = {event => setNome(event.target.value)}/>
+        <input type="email" placeholder="E-mail" onChange = {event => setEmail(event.target.value)}/>
+        <input type="password" placeholder="Senha" onChange = {event => setSenha(event.target.value)}/>
+        <input type="password" placeholder="Confirmar senha" onChange = {event => setSenha(event.target.value)}/>
+        <input type="text" placeholder="User" onChange = {event => setUser(event.target.value)}/>
+        <input type="text" placeholder="Endereço" onChange = {event => setEndereco(event.target.value)}/>
+        <input type="phone" placeholder="Telefone" onChange = {event => setTelefone(event.target.value)}/>
+       
+        <button type="submit"  onClick={click}>Salvar</button>
         </form>
         </div>
 
