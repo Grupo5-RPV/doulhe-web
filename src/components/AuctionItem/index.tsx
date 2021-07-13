@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FiClock } from 'react-icons/fi';
 
-import { differenceInSeconds } from 'date-fns';
+import { differenceInSeconds, parse } from 'date-fns';
 
 import { convertInReais, convertSeconds } from '../../utils/converts';
 import styles from './styles.module.scss';
@@ -9,18 +9,20 @@ import styles from './styles.module.scss';
 interface AuctionItemProps {
   name: string;
   category: string;
-  finalDate: Date;
+  imageUrl: string;
+  finalDate: string;
   highestBid: number;
 }
 
 export function AuctionItem({
   name,
   category,
+  imageUrl,
   finalDate,
   highestBid,
 }: AuctionItemProps) {
   const [timeTofinished, setTimeTofinished] = useState(
-    differenceInSeconds(finalDate, new Date())
+    differenceInSeconds(new Date(finalDate), new Date())
   );
 
   useEffect(() => {
@@ -37,10 +39,7 @@ export function AuctionItem({
         <FiClock />
         <strong>{convertSeconds(timeTofinished)}</strong>
       </div>
-      <img
-        src="https://i.pinimg.com/originals/4f/c3/a3/4fc3a33627db8cdf267b869a3caed4a1.png"
-        alt="item"
-      />
+      <img src={imageUrl} alt={name} />
       <div className={styles.detailsItem}>
         <span>{category}</span>
         <strong>MAIOR LANCE: {convertInReais(highestBid)}</strong>

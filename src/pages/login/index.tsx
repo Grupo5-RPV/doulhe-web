@@ -1,17 +1,27 @@
 import { useForm } from 'react-hook-form';
 
+import axios from 'axios';
+
 import { useAuth } from '../../hooks/auth';
+import { api } from '../../services/server';
 import styles from './login.module.scss';
+
+interface SignData {
+  email: string;
+  password: string;
+}
 
 export default function Login() {
   const { register, handleSubmit } = useForm();
   const { signIn } = useAuth();
 
-  async function handleSignIn(data: any) {
-    signIn({
+  async function handleSignIn(data: SignData) {
+    const result = await api.post('/participants/login', {
       email: data.email,
       password: data.password,
     });
+
+    console.log(result);
   }
 
   return (
