@@ -2,8 +2,8 @@ import { phone } from 'faker/locale/zh_TW';
 import React, { useState } from 'react';
 import { Header } from '../../components/Header';
 import styles from './participant.module.scss';
-
-
+import {api} from '../../services/server';
+import Router from 'next/router';
 interface Data {
   name: string;
   username: string;
@@ -11,45 +11,58 @@ interface Data {
   email: string;
   adress: string;
   phone: string;
+  token: string
 }
 
+
 export default function Participant() {
-  
-  const {addParticipant, handleSubmit} = useForm();
-  const {save} = useAdd();
-  
-  async function handleSave (data: Data){
-    await save({ 
-      name: data.name,
-      username: data.username,
-      password: data.password,
-      email: data.email,
-      adress: data.adress,
-      phone: data.phone,
-    });
-  }
-  
-  
-  
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [user, setUser] = useState('');
   const [endereco, setEndereco] = useState('');
   const [telefone, setTelefone] = useState('');
+  
+  
 
-  async function click(event) {
-    event.preventDefault();
+  async function handleSave (){
+    try{
+      const res = await api.post('participants',{
+        name: nome,
+        username: user,
+        password: senha,
+        email: email,
+        address: endereco,
+        phone: telefone,
+        token:"aaa"        
+      })
+      Router.push("/login")
+
+    }catch(error){
+      alert("Erro no servidor")
+    }
+  }
+  
+  
+  
+  
+
+  async function click() {
+    const data = {
+      name: nome,
+      username: user,
+      password: senha,
+      email: email,
+      adress: endereco,
+      phone: telefone,
+      token: "aaa"
+    };
+    alert(data.name)
+    await handleSave();
+    
   }
 
-  const data = {
-    name: nome,
-    username: user,
-    password: senha,
-    email: email,
-    adress: endereco,
-    phone: telefone,
-  };
+  
 
   return (
     <div className={styles.containner}>
